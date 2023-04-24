@@ -1,5 +1,14 @@
 let Router = require('express').Router();
 
+
+/* 
+    GET ALL: /table
+    GET RECORDS BY FIELD: /table/field/value
+    INSERT RECORD: /table
+    UPDATE RECORD: /table/ID
+    DELETE RECORD BY FIELD: /table/field/value
+*/
+
 // GET ALL RECORDS
 Router.get('/:table', (req, res) => {
     var table = req.params.table;

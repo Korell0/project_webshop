@@ -7,13 +7,9 @@ var connection = mysql.createConnection(config);
 
 const app = express();
 
-app.post('/item', upload.single('image'), (req, res)=>{
+app.post('/item', (req, res)=>{
     let image = req.file;
-    let text = req.body; 
-    connection.query(`INSERT INTO \`**dbname**\` (\`**fields**\`) VALUES (\`**values**\`)`, (err, result)=>{
-        if(err) res.status(500).send(err);
-        else res.status(200).send(result);
-    })
+    upload.single('image');
 })
 
 module.exports = Router;

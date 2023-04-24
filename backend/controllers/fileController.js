@@ -1,6 +1,25 @@
 const express = require('express');
 const Router = express.Router();
-const multer  = require('multer');
+const multer = require('multer')({
+        storage:require('multer').diskStorage({
+             destination:"./uploads",
+            filename:(req,file,cb)=>{
+                let filename=file.originalname.split('.')[0]+Date.now()+path.extname(file.originalname)
+                cb(null,filename)
+            }
+        }),
+        fileFilter: (req, file, cb) => {
+            if (file.mimetype.startsWith('image/')) cb(null, true);
+            else cb({
+                'message': 'File is not accepted!',
+                'name': 'FileAccept Error',
+                'code': 'FILE_NOT_ACCEPTED'
+            }, false);
+        },
+        limits:{
+                fileSize: 5242880
+            }
+        });
 const upload = multer({ dest: './uploads/' });
 const config = require('../modules/config');
 const mysql = require('mysql');

@@ -28,7 +28,7 @@ Router.post('/to/:id',(req,res)=>{
             transporter.sendMail({
               from:"noreply@korsziUwU.com",
               to:targetEmail,
-              subject:"Rendelési információk",
+              subject:"Owdew infowmations",
               html: data
               }, (err, info)=>{
                   if (err) res.status(500).send(err);

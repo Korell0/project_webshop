@@ -20,9 +20,7 @@ Router.post('/to/:id',(req,res)=>{
               pass:account.pass
           }
         })
-        ejs.renderFile(path.join(__dirname,'../mail.ejs'),{
-          //TODO:ejs adatok
-        },(err,data)=>{
+        ejs.renderFile(path.join(__dirname,'../mail.ejs',{data:req.body}),(err,data)=>{
           if (err) res.status(500).send(err);
           else{
             transporter.sendMail({

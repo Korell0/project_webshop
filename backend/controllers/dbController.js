@@ -10,7 +10,7 @@ let Router = require('express').Router();
 */
 
 // GET ALL RECORDS
-Router.get('/:table', (req, res) => {
+Router.get('/:table',  (req, res) => {
     var table = req.params.table;
     pool.query(`SELECT * FROM ${table}`, (err, results) => {
         if (err) {
@@ -25,7 +25,7 @@ Router.get('/:table', (req, res) => {
 });
 
 // GET RECORDS BY FIELD
-Router.get('/:table/:field/:value', tokencheck(), (req, res) => {
+Router.get('/:table/:field/:value',  (req, res) => {
     var table = req.params.table;
     var field = req.params.field;
     var value = req.params.value;
@@ -42,10 +42,9 @@ Router.get('/:table/:field/:value', tokencheck(), (req, res) => {
 });
 
 // INSERT RECORD
-Router.post('/:table', (req, res) => {
+Router.post('/:table',  (req, res) => {
     var table = req.params.table;
     var sqlData = CreateSQLdata(req.body)
-
     pool.query(`INSERT INTO ${table} (${sqlData.fields_text}) VALUES(${sqlData.values_text})`, sqlData.values, (err, results) => {
         if (err) {
             log(req.socket.remoteAddress, err);
@@ -57,13 +56,13 @@ Router.post('/:table', (req, res) => {
     });
 });
 
-// UPDATE RECORD
-app.patch('/:table/:id', tokencheck(), (req, res) => {
+// UPDATE RECORD BY ID
+Router.patch('/:table/:id',  (req, res) => {
     var table = req.params.table;
     var id = req.params.id;
     var sqlData = CreateSQLdata(req.body)
 
-    pool.query(`UPDATE ${table} SET ${update_text} WHERE ID=${id}`, sqlData.values, (err, results) => {
+    pool.query(`UPDATE ${table} SET ${sqlData.update_text} WHERE ID=${id}`, sqlData.values, (err, results) => {
         if (err) {
             log(req.socket.remoteAddress, err);
             res.status(500).send("Error during database connection.");
@@ -75,7 +74,7 @@ app.patch('/:table/:id', tokencheck(), (req, res) => {
 });
 
 // DELETE RECORD BY FIELD
-app.delete('/:table/:field/:value', (req, res) => {
+Router.delete('/:table/:field/:value',  (req, res) => {
     var table = req.params.table;
     var field = req.params.field;
     var value = req.params.value;
@@ -91,6 +90,7 @@ app.delete('/:table/:field/:value', (req, res) => {
     });
 });
 
+// Create data for sql querry
 function CreateSQLdata(records){
     var values = [];
     var fieldList = Object.keys(records);
@@ -98,22 +98,22 @@ function CreateSQLdata(records){
     var values_text = '';
     var update_text = '';
 
-    fieldList.forEach(field => {
-        fields_text += `${field}, `;
-        values_text += '?, ';
-        update_text += `${field}=?, `
+    for (let i = 0; i < fieldList.length; i++) {
+        fields_text += `${fieldList[i]}, `;
+        values_text += `NULLIF(?, ''), `;
+        update_text += `${fieldList[i]}=NULLIF(?, ''), `
 
-        if (fieldList[field] == null || fieldList[field] == "" || fieldList[field] == undefinded) {
-            values.push("NULL"); // MAYBE NOT -----------------------------------------------------
-        }else {
-            values.push(fieldList[field]);
+        if (fieldList[i] == null || fieldList[i] == "" || fieldList[i] == undefined) {
+            values.push('');
+        } else {
+            values.push(records[fieldList[i]]);
         }
-    });
+    }
 
     // trim (', ') part of texts
-    fields_text = fields_text.substring(0, fields_text.length-1);
-    values_text = values_text.substring(0, values_text.length-1);
-    update_text = update_text.substring(0, update_text.length-1);
+    fields_text = fields_text.substring(0, fields_text.length-2);
+    values_text = values_text.substring(0, values_text.length-2);
+    update_text = update_text.substring(0, update_text.length-2);
 
     return {
         values: values,

@@ -3,14 +3,18 @@
     <mat-icon>menu</mat-icon>
   </button>
   <span>{{title}}</span>
-  <span class="example-spacer"></span>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon>share</mat-icon>
-  </button>
+  <section>
+
+    <div class="example-button-row">
+      <a class="nav-link" routerLinkActive="active" routerLink="/homepage"><button mat-button color="primary">Home</button></a>
+      <a class="nav-link" routerLinkActive="active" routerLink="/kosar"><button mat-button color="primary">Kosár</button></a>
+      <a class="nav-link" routerLinkActive="active"  routerLink="/profil"><button mat-button color="primary">Profil</button></a>
+      <a class="nav-link" routerLinkActive="active"  routerLink="/rendelesek"><button mat-button color="primary">Rendelések</button></a>
+      <a class="nav-link" routerLinkActive="active" routerLink="/termekek"><button mat-button color="primary">Termékek</button></a>
+      <a class="nav-link" routerLinkActive="active"  routerLink="/info"><button mat-button color="primary">INFO</button></a>
+      <a mat-button href="https://www.google.com/" target="_blank">Google</a>
+    </div>
+  </section>
 </mat-toolbar>
 <app-navbar></app-navbar>
 <router-outlet></router-outlet>
-

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {MatButtonModule} from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InfoComponent } from './components/info/info.component';
@@ -26,7 +26,8 @@ import { RegComponent } from './components/reg/reg.component';
     OrderComponent,
     ProudctComponent,
     LoginComponent,
-    RegComponent
+    RegComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -34,9 +35,13 @@ import { RegComponent } from './components/reg/reg.component';
     BrowserAnimationsModule,
     HttpClientModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
+
 })
+
 export class AppModule { }

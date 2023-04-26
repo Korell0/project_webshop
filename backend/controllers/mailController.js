@@ -1,7 +1,7 @@
 let Router = require('express').Router();
 const { default: axios } = require('axios');
 let nodemailer = require('nodemailer');
-let tokencheck = require('../modules/tokenCheck').tokenCheck;
+let tokencheck = require('../modules/tokens').tokenCheck;
 let path = require('path');
 let log = require('../modules/logging').log;
 let ejs = require('ejs');

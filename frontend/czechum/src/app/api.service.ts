@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
 
-  private serverurl = "localhost/8888";
+  private serverurl = "localhost:8888";
   constructor(private http: HttpClient) { }
 
   selectAll(table: string){

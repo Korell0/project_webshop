@@ -1,7 +1,7 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     
-    <ng-container matColumnDef="position">
+    <ng-container matColumnDef="nev">
       <th mat-header-cell *matHeaderCellDef> Termék </th>
       <td mat-cell *matCellDef="let element"> {{termek.nev}} </td>
     </ng-container>
@@ -14,7 +14,7 @@
   
     
     <ng-container matColumnDef="mennyiseg">
-      <th mat-header-cell *matHeaderCellDef> Mennyiseg </th>
+      <th mat-header-cell *matHeaderCellDef> Mennyiség </th>
       <td mat-cell *matCellDef="let element"> {{termek.mennyiseg}} </td>
     </ng-container>
   
@@ -28,4 +28,4 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
   
-  
+  <button mat-raised-button color="primary">Rendelés</button>

@@ -6,7 +6,13 @@ let jose = require('jose');
 function ProtectedRoute(table){
     //These are the whitelisted tables.
     let whitelist = [
-        "",
+        "cart",
+        "cartproductconnection",
+        "cashondelivery",
+        "orders",
+        "products",
+        "units",
+        "weightcost"
     ];
     return whitelist.filter(e=>e==table).length <= 0;
 }

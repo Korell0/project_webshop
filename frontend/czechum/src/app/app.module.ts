@@ -15,6 +15,7 @@ import { OrderComponent } from './components/order/order.component';
 import { ProudctComponent } from './components/proudct/proudct.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegComponent } from './components/reg/reg.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { RegComponent } from './components/reg/reg.component';
     HttpClientModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTabsModule
 
   ],
   providers: [],

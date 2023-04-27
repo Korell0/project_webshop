@@ -3,7 +3,7 @@ let sql = require('mysql2');
 
 module.exports = {
     port: process.env.PORT,
-    dbconnection : sql.createPool({
+    pool : sql.createPool({
         database:process.env.DBNAME,
         host: process.env.DBHOST,
         user: process.env.DBUSER,

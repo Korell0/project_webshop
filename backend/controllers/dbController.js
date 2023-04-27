@@ -1,4 +1,7 @@
 let Router = require('express').Router();
+let config = require('../modules/config');
+let log = require('../modules/logging.js');
+
 
 
 /* 
@@ -12,7 +15,7 @@ let Router = require('express').Router();
 // GET ALL RECORDS
 Router.get('/:table',  (req, res) => {
     var table = req.params.table;
-    pool.query(`SELECT * FROM ${table}`, (err, results) => {
+    config.pool.query(`SELECT * FROM ${table}`, (err, results) => {
         if (err) {
             log(req.socket.remoteAddress, err);
             res.status(500).send("Error during database connection.");
@@ -29,7 +32,7 @@ Router.get('/:table/:field/:value',  (req, res) => {
     var table = req.params.table;
     var field = req.params.field;
     var value = req.params.value;
-    pool.query(`SELECT * FROM ${table} WHERE ${field}=?`, [value] , (err, results) => {
+    config.pool.query(`SELECT * FROM ${table} WHERE ${field}=?`, [value] , (err, results) => {
         if (err) {
             log(req.socket.remoteAddress, err);
             res.status(500).send("Error during database connection.");
@@ -45,7 +48,7 @@ Router.get('/:table/:field/:value',  (req, res) => {
 Router.post('/:table',  (req, res) => {
     var table = req.params.table;
     var sqlData = CreateSQLdata(req.body)
-    pool.query(`INSERT INTO ${table} (${sqlData.fields_text}) VALUES(${sqlData.values_text})`, sqlData.values, (err, results) => {
+    config.pool.query(`INSERT INTO ${table} (${sqlData.fields_text}) VALUES(${sqlData.values_text})`, sqlData.values, (err, results) => {
         if (err) {
             log(req.socket.remoteAddress, err);
             res.status(500).send("Error during database connection.");
@@ -62,7 +65,7 @@ Router.patch('/:table/:id',  (req, res) => {
     var id = req.params.id;
     var sqlData = CreateSQLdata(req.body)
 
-    pool.query(`UPDATE ${table} SET ${sqlData.update_text} WHERE ID=${id}`, sqlData.values, (err, results) => {
+    config.pool.query(`UPDATE ${table} SET ${sqlData.update_text} WHERE ID=${id}`, sqlData.values, (err, results) => {
         if (err) {
             log(req.socket.remoteAddress, err);
             res.status(500).send("Error during database connection.");
@@ -79,7 +82,7 @@ Router.delete('/:table/:field/:value',  (req, res) => {
     var field = req.params.field;
     var value = req.params.value;
 
-    pool.query(`DELETE FROM ${table} WHERE ${field}=?`, [value], (err, results) => {
+    config.pool.query(`DELETE FROM ${table} WHERE ${field}=?`, [value], (err, results) => {
         if (err) {
             log(req.socket.remoteAddress, err);
             res.status(500).send("Error during database connection.");

@@ -16,7 +16,7 @@ import { ProudctComponent } from './components/proudct/proudct.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegComponent } from './components/reg/reg.component';
 import {MatTabsModule} from '@angular/material/tabs';
-
+import {MatFormFieldModule} from '@angular/material/form-field';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,8 +38,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatTabsModule
-
+    MatTabsModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

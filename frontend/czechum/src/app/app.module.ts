@@ -17,6 +17,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegComponent } from './components/reg/reg.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatIconModule,
     MatButtonModule,
     MatTabsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

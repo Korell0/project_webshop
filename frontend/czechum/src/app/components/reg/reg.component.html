@@ -1,1 +1,25 @@
-<p>reg works!</p>
+<mat-form-field appearance="outline">
+    <mat-label>Email cím megadása</mat-label>
+    <input matInput placeholder="pat@example.com" required>
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+</mat-form-field>
+
+
+<mat-form-field appearance="outline">
+    <mat-label>Felhasználónév megadása</mat-label>
+    <input matInput placeholder="bela42069">
+ </mat-form-field>
+
+ <mat-form-field appearance="outline">
+     <mat-label>Teljesnév megadása</mat-label>
+     <input matInput placeholder="Béla Béla">
+  </mat-form-field>
+
+ <mat-form-field appearance="outline">
+    <mat-label>Kérem írjon be egy jelszót</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'">
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Jelszó elrejtése'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+</mat-form-field>
+

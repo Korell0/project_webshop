@@ -1,5 +1,16 @@
 <!--
+<<<<<<< HEAD
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+=======
+<<<<<<< HEAD
+<!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    
+    <ng-container matColumnDef="nev">
+      <th mat-header-cell *matHeaderCellDef> Termék </th>
+      <td mat-cell *matCellDef="let element"> {{termek.nev}} </td>
+    </ng-container>
+>>>>>>> 76383011162568aadcf7855aec2ad4ce6c6ff583
   
       
       <ng-container matColumnDef="nev">
@@ -19,6 +30,7 @@
         <td mat-cell *matCellDef="let element"> {{termek.mennyiseg}} </td>
       </ng-container>
     
+<<<<<<< HEAD
       
       <ng-container matColumnDef="osszesen">
         <th mat-header-cell *matHeaderCellDef> Összesen </th>
@@ -29,5 +41,47 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
     
-    <button mat-raised-button color="primary">Rendelés</button>
---> 
+    <button mat-raised-button color="primary">Rendelés</button> 
+=======
+    <ng-container matColumnDef="osszesen">
+      <th mat-header-cell *matHeaderCellDef> Összesen </th>
+      <td mat-cell *matCellDef="let element"> {{element.osszesen}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  <button mat-raised-button color="primary">Rendelés</button> -->
+
+ <!--<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+  <ng-container matColumnDef="nev">
+    <th mat-header-cell *matHeaderCellDef> Termék </th>
+    <td mat-cell *matCellDef="let element"> {{termek.nev}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="reszletek">
+    <th mat-header-cell *matHeaderCellDef> Részletek </th>
+    <td mat-cell *matCellDef="let element"> {{termek.reszletek}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="mennyiseg">
+    <th mat-header-cell *matHeaderCellDef> Mennyiség </th>
+    <td mat-cell *matCellDef="let element"> {{termek.mennyiseg}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="osszesen">
+    <th mat-header-cell *matHeaderCellDef> Összesen </th>
+    <td mat-cell *matCellDef="let element"> {{element.osszesen}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<button mat-raised-button color="primary">Rendelés</button>-->

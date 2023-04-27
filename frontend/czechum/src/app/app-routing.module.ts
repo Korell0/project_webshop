@@ -6,6 +6,7 @@ import { KosarComponent } from'./components/kosar/kosar.component';
 import { OrderComponent } from'./components/order/order.component';
 import { LoginComponent } from'./components/login/login.component';
 import { ProductComponent } from './components/product/product.component';
+import {RegComponent} from'./components/reg/reg.component';
 
 const routes: Routes = [
   { path: 'info', component: InfoComponent },
@@ -14,7 +15,7 @@ const routes: Routes = [
   { path: 'rendelesek', component: OrderComponent },
   { path: 'termekek', component: ProductComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'reg', component: HomepageComponent }
+  { path: 'reg', component: RegComponent}
 ];
 
 @NgModule({

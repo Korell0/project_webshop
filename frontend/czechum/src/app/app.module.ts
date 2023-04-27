@@ -17,7 +17,8 @@ import { RegComponent } from './components/reg/reg.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ProductComponent } from './components/product/product.component';
-import { MatTableModule } from '@angular/material/table'  
+import { MatTableModule } from '@angular/material/table' 
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { MatTableModule } from '@angular/material/table'
     MatTabsModule,
     MatPaginatorModule,
     MatTableModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

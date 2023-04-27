@@ -17,7 +17,7 @@ import { RegComponent } from './components/reg/reg.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ProductComponent } from './components/product/product.component';
-import { MatTableModule } from '@angular/material/table' 
+import { MatTableModule } from '@angular/material/table'
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 @NgModule({
@@ -42,7 +42,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatButtonModule,
     MatTabsModule,
     MatFormFieldModule,
-    MatProgressBarModule
+    MatProgressBarModule,
     MatPaginatorModule,
     MatTableModule,
     MatFormFieldModule
